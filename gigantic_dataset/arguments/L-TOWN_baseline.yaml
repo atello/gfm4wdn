@@ -1,0 +1,154 @@
+inp_paths:
+- gigantic_dataset/inputs/L-TOWN_Real.inp
+sim_outputs:
+- pressure
+- demand
+ray_temp_path: tmp/ray
+temp_path: gigantic_dataset/temp
+output_path: gigantic_dataset/outputs
+gen_batch_size: 100
+batch_size: 10
+duration: 24
+time_step: 1
+num_samples: 100
+backup_times: 1
+num_cpus: 10
+fractional_cpu_usage: 1.0
+mem_per_worker: 5
+yield_worker_generator: false
+time_consistency: true
+save_success_inp: true
+verbose: true
+skip_names: []
+pressure_range:
+- -0.0001
+- 151
+tank_tune: !!python/object:gigantic_dataset.utils.configs.TankTuneConfig
+    elevation_strategy: keep
+    elevation_values: null
+    diameter_strategy: keep
+    diameter_values: null
+    init_level_strategy: keep
+    init_level_values: null
+    overflow_strategy: keep
+    overflow_values: null
+    vol_curve_name_strategy: keep
+    vol_curve_name_values: null
+    min_vol_strategy: keep
+    min_vol_values: null
+reservoir_tune: !!python/object:gigantic_dataset.utils.configs.ReservoirTuneConfig
+    base_head_strategy: keep
+    base_head_values: null
+    head_pattern_name_strategy: keep
+    head_pattern_name_values: null
+junction_tune: !!python/object:gigantic_dataset.utils.configs.JunctionTuneConfig
+    elevation_strategy: keep
+    elevation_values: null
+    base_demand_strategy: keep
+    base_demand_values: null
+pipe_tune: !!python/object:gigantic_dataset.utils.configs.PipeTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    diameter_strategy: keep
+    diameter_values: null
+    minor_loss_strategy: keep
+    minor_loss_values: null
+    roughness_strategy: keep
+    roughness_values: null
+    wall_coeff_strategy: keep
+    wall_coeff_values: null
+    length_strategy: keep
+    length_values: null
+power_pump_tune: !!python/object:gigantic_dataset.utils.configs.PowerPumpConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    energy_price_strategy: keep
+    energy_price_values: null
+    energy_pattern_strategy: keep
+    energy_pattern_values: null
+    base_speed_strategy: keep
+    base_speed_values: null
+    speed_pattern_name_strategy: keep
+    speed_pattern_name_values: null
+    efficiency_strategy: keep
+    efficiency_values: null
+    power_strategy: keep
+    power_values: null
+head_pump_tune: !!python/object:gigantic_dataset.utils.configs.HeadPumpConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    energy_price_strategy: keep
+    energy_price_values: null
+    energy_pattern_strategy: keep
+    energy_pattern_values: null
+    base_speed_strategy: keep
+    base_speed_values: null
+    speed_pattern_name_strategy: keep
+    speed_pattern_name_values: null
+    efficiency_strategy: keep
+    efficiency_values: null
+    pump_curve_name_strategy: keep
+    pump_curve_name_values: null
+prv_tune: !!python/object:gigantic_dataset.utils.configs.PRVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+psv_tune: !!python/object:gigantic_dataset.utils.configs.PSVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+pbv_tune: !!python/object:gigantic_dataset.utils.configs.PBVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+fcv_tune: !!python/object:gigantic_dataset.utils.configs.FCVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+tcv_tune: !!python/object:gigantic_dataset.utils.configs.TCVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+gpv_tune: !!python/object:gigantic_dataset.utils.configs.GPVTuneConfig
+    initial_status_strategy: keep
+    initial_status_values: null
+    initial_setting_strategy: keep
+    initial_setting_values: null
+    headloss_curve_name_strategy: keep
+    headloss_curve_name_values: null
+adgv2_config: !!python/object:gigantic_dataset.utils.configs.ADGV2Config
+    yearly_pattern_num_harmonics: 4
+    summer_amplitude_range: !!python/tuple
+    - 2
+    - 3
+    summer_start: 0.4166666666666667
+    summer_rolling_rate: 0.2
+    p_commercial: !!python/tuple
+    - 0.25
+    - 0.35
+    profile_household: !!python/tuple
+    - 0
+    - 2
+    - 1
+    - 0
+    profile_extreme: !!python/tuple
+    - 2
+    - 2
+    - 2
+    - 2
+    profile_commercial: !!python/tuple
+    - 2
+    - 2
+    - 2
+    - 1
+    noise_range: !!python/tuple
+    - 0.02
+    - 0.2
+    zero_dem_rate: 0.05
+    extreme_dem_rate: 0.02
+    max_extreme_dem_junctions: 2

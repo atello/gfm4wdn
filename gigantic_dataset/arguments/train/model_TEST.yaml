@@ -1,0 +1,26 @@
+model_configs:
+- !!python/object:gigantic_dataset.utils.configs.ModelConfig
+    weight_path: ""
+    num_layers: 5  # in habrok should be 15
+    nc: 32
+    name: GATRes
+    act: relu # unfunctional
+    has_final_linear: false # unfunctional
+lr: 0.0005
+weight_decay: 0.00001
+epochs: 1
+mask_rate: 0.95
+criterion: mse
+batch_size: 256  # this can be 120 in habrok
+use_data_batch: false
+device: cuda
+norm_type: znorm
+norm_on:
+    - node
+    - edge
+task: semi
+log_method: "local"
+project_name: "gfm-wdn_test" #it is not auto-change when you eval(.)
+save_path: '' # make it empty to auto-gen in a first training
+log_per_epoch: 1
+run_prefix: "EVAL-FULL-GATRes"  # to distinguish two wandb runs
